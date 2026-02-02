@@ -4,13 +4,14 @@
   --color-primary-dark: #2a8c91;
   --color-secondary: #1f6f8b;
   --color-secondary-dark: #1a5a72;
-  --color-accent: #6bcf9c;
+  --color-accent: #13ec92;
+  --color-accent-hover: #0bdb85;
   --color-gray-light: #e2e8f0;
   --color-gray-dark: #4a5568;
   --color-border: #cbd5e0;
 
   /* Backgrounds */
-  --color-bg: #f7fafc;
+  --color-bg: #f1f7fa;
   --color-white: #ffffff;
 
   /* Text */
@@ -43,11 +44,13 @@
 }
 
 body {
+  overflow-x: hidden;
   font-family: "Inter", sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  height: 30000px;
 }
 
 img {

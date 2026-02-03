@@ -1,0 +1,612 @@
+/* Hero Section */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 4rem auto;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 550px;
+}
+
+.trusted-badge {
+  display: inline-block;
+  background-color: #e0fbf0; /* Light green background */
+  color: var(--color-accent-hover);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: white; /* Force white text */
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 4px 14px 0 rgba(19, 236, 146, 0.69);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background-color: white;
+  color: var(--color-text-primary);
+  border: 2px solid #e2e8f0;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Push image to right */
+  align-items: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  /* Optional: Drop shadow for the image if it's a cut-out illustration */
+  /* filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1)); */
+}
+
+/* Bento Grid Features Section */
+.features-section {
+  background-color: var(--color-primary);
+  padding: 4rem 2rem;
+}
+.features-section > div {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 1.6rem;
+  background-color: var(--color-gray-light);
+  -webkit-border-radius: 1.6rem;
+  -moz-border-radius: 1.6rem;
+  -ms-border-radius: 1.6rem;
+  -o-border-radius: 1.6rem;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: repeat(2, minmax(240px, auto));
+  gap: 1.5rem;
+}
+
+.bento-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05); /* Soft, premium shadow */
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.bento-card p {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* 1. Tall Card: Expert Pharmacists */
+.feature-pharmacists {
+  grid-row: 1 / span 2;
+  background: linear-gradient(
+    135deg,
+    #fdfbfb 0%,
+    #ebedee 100%
+  ); /* Subtle gray gradient */
+}
+
+/* Chat Visuals */
+.chat-visual {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  padding-top: 2rem;
+}
+
+.chat-bubble {
+  padding: 10px 16px;
+  border-radius: 18px;
+  font-size: 0.85rem;
+  max-width: 85%;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  animation: float 6s ease-in-out infinite;
+}
+
+.chat-bubble.left {
+  background: white;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-bubble.right {
+  background: var(--color-primary);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  margin-left: auto;
+}
+
+.chat-bubble .avatar {
+  width: 24px;
+  height: 24px;
+  background-color: #ddd;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.chat-bubble .line {
+  display: block;
+  height: 6px;
+  background-color: #eee;
+  border-radius: 3px;
+  margin-bottom: 4px;
+}
+.chat-bubble .line.short {
+  width: 60px;
+}
+.chat-bubble .line.long {
+  width: 90px;
+  margin-bottom: 0;
+}
+
+.badge-float {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(19, 236, 146, 0.1);
+  color: var(--color-accent-hover);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  width: fit-content;
+}
+
+.badge-float .dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  display: block;
+}
+
+/* 2. Wide Card: Delivery */
+.feature-delivery {
+  background: #ffffff;
+}
+
+.feature-delivery .card-content {
+  justify-content: space-between;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f8fafc;
+  padding: 0.75rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  border: 1px solid #edf2f7;
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.status-text {
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+}
+
+.big-stat {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--color-accent);
+  line-height: 1;
+  align-self: flex-end;
+}
+
+/* 3. Wide Card: Genuine */
+.feature-genuine {
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #f0fdf4
+  ); /* Slight green tint */
+}
+
+.feature-genuine .card-content {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.feature-genuine .verified-badge {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  min-width: 140px;
+  text-align: center;
+}
+
+.feature-genuine .text-group {
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .feature-pharmacists {
+    grid-row: auto;
+  }
+
+  .feature-genuine .card-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Decorative Blur */
+.bg-gradient-blur {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(19, 236, 146, 0.15) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Categories Section */
+.categories-section {
+  padding: 4rem 1.5rem;
+  margin-bottom: 5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.category-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 280px;
+  /*Tallcards*/
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.4s ease-in-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: var(--radius-lg);
+  -moz-border-radius: var(--radius-lg);
+  -ms-border-radius: var(--radius-lg);
+  -o-border-radius: var(--radius-lg);
+  -webkit-transition: transform 0.4s ease-in-out;
+  -moz-transition: transform 0.4s ease-in-out;
+  -ms-transition: transform 0.4s ease-in-out;
+  -o-transition: transform 0.4s ease-in-out;
+}
+.category-card:nth-child(1) {
+  background: url("../assets/images/medicines.jpg") center/cover no-repeat;
+}
+.category-card:nth-child(2) {
+  background: url("../assets/images/medical-devices.jpg") center/cover no-repeat;
+}
+.category-card:nth-child(3) {
+  background: url("../assets/images/healthcare.jpg") center/cover no-repeat;
+}
+
+.category-card:hover {
+  transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+  -moz-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  -o-transform: scale(1.01);
+}
+
+/* Overlay gradient for readability */
+.category-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 50%;
+}
+
+.category-info h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: white;
+}
+
+.category-info span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+.view-all-link {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.view-all-link:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+/* Carousel Navigation */
+.carousel-nav {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background: var(--color-gray-light);
+  border-color: var(--color-text-primary);
+}
+
+/* Best Sellers Section */
+.best-sellers-section {
+  padding: 0 1rem;
+  margin-bottom: 5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.products-grid {
+  /* grid-template-columns: repeat(4, 1fr);  <-- Replacing grid with flex/scroll */
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1.5rem;
+  padding: 1rem 0.5rem 2rem 0.5rem; /* Padding for shadow clearance */
+  scrollbar-width: none; /* Firefox */
+
+  /* Fade Effect Mask */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 2%,
+    black 98%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 2%,
+    black 98%,
+    transparent 100%
+  );
+}
+
+.products-grid::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.products-grid > .product-card {
+  width: 280px;
+  min-width: 280px;
+  flex: 0 0 auto; /* Don't grow, don't shrink, auto basis */
+}
+
+/* Responsive Logic */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%; /* Full width buttons on mobile? Maybe not full but bigger */
+  }
+
+  /* Clean up legacy responsive styles */
+  .features-section {
+    padding: 2.2rem 1rem;
+  }
+
+  .categories-section {
+    padding: 2.2rem 1rem;
+  }
+
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .category-card {
+    height: 300px;
+  }
+}

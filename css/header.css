@@ -40,7 +40,7 @@
 .logo {
   font-size: 1.75rem;
   font-weight: 800;
-  color: var(--color-primary);
+  color: var(--color-accent-hover);
   text-decoration: none;
   display: flex;
   align-items: center;

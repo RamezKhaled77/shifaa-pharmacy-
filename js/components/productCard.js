@@ -1,20 +1,28 @@
-
 export const ProductCard = (product) => {
-    return `
-        <div class="product-card" style="background: white; border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-            <div style="height: 200px; background-color: #f1f5f9; display: flex; align-items: center; justify-content: center;">
-                <!-- Placeholder for image if not exists -->
-                ${product.image ? `<img src="${product.image}" alt="${product.name}" style="height: 100%; width: 100%; object-fit: cover;">` : `<span style="color: var(--text-muted);">No Image</span>`}
+  return `
+        <div class="product-card">
+            <div class="product-image-wrapper">
+                <img src="${product.image}" alt="${product.name}" class="product-image">
             </div>
-            <div style="padding: 1rem;">
-                <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">${product.category}</div>
-                <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">
+            <div class="product-content">
+                <div class="product-category">${product.category || "Healthcare"}</div>
+                <h3 class="product-title">
                     <a href="/product/${product.id}" data-link>${product.name}</a>
                 </h3>
-                <div class="flex justify-between items-center" style="margin-top: 1rem;">
-                    <span style="font-weight: 700; color: var(--primary-color); font-size: 1.25rem;">$${product.price.toFixed(2)}</span>
-                    <button class="add-to-cart-btn" data-id="${product.id}" style="background: var(--primary-color); color: white; padding: 0.5rem 1rem; border-radius: var(--radius-sm); font-size: 0.875rem;">Add</button>
+                <p class="product-description">${product.description || ""}</p>
+                
+                <div class="product-meta-row">
+                    <span class="product-price">$${product.price.toFixed(2)}</span>
+                    <div class="product-rating-badge">
+                        <span class="star-icon">★</span>
+                        <span class="rating-val">${product.rating || 4.5}</span>
+                    </div>
                 </div>
+
+                <button class="btn-add-to-cart-full" data-id="${product.id}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    Add to Cart
+                </button>
             </div>
         </div>
     `;

@@ -111,13 +111,14 @@
 }
 
 .card-product .card-image {
+  width: 100%;
   position: relative;
   background-color: var(--color-bg);
   padding: var(--space-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 220px; /* Fixed height for image area */
+  height: 250px; /* Fixed height for image area */
 }
 
 .card-product img {
@@ -205,6 +206,145 @@
   z-index: 10;
 }
 
+/* Product Card Style - Reusable Component */
+.product-card {
+  background: white;
+  border-radius: 12px; /* Slightly tighter radius */
+  /* border: 1px solid #f0f0f0;  Removing border, using shadow like image */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  padding: 1.5rem; /* Inner padding for whole card */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.product-image-wrapper {
+  background-color: #f7f9fa; /* Darker/different bg for image if needed, or transparent? Image in reference has dark bg. keeping it simple/light */
+  border-radius: 12px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: normal;
+  padding: 0;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-primary); /* Teal-ish */
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.product-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  color: #1a202c; /* Dark text */
+  flex-grow: 0; /* Don't stretch */
+}
+
+.product-title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-description {
+  font-size: 0.85rem;
+  color: #718096; /* Gray text */
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  margin-top: auto; /* Push to bottom of content area before button */
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a202c;
+}
+
+.product-rating-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1a202c;
+}
+
+.star-icon {
+  color: var(--color-accent); /* Green star */
+  font-size: 1rem;
+}
+
+/* Full Width Green Button */
+.btn-add-to-cart-full {
+  width: 100%;
+  background-color: var(--color-accent); /* Spring green */
+  color: #0f3d2e; /* Dark green/black text for contrast on bright green */
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+}
+
+.btn-add-to-cart-full:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
 .badge-new {
   background-color: var(--color-text-primary);
   color: var(--color-white);
@@ -276,10 +416,12 @@
   border-left: 1px solid var(--color-border);
   border-right: 1px solid var(--color-border);
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 .quantity-selector input::-webkit-outer-spin-button,
 .quantity-selector input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  appearance: none;
   margin: 0;
 }

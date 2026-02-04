@@ -21,7 +21,7 @@ export const Header = () => {
                 <div class="nav-menu" id="nav-menu">
                     <a href="/" data-link class="nav-link">Home</a>
                     <a href="/products" data-link class="nav-link">Products</a>
-                    <a href="/about" data-link class="nav-link">About Us</a>
+                    <a href="/about" data-link class="nav-link">About & Contact</a>
                     <button href="/cart" data-link class="nav-link cart-link">
                     <div class="relative">
                     <svg class="cart-icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

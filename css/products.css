@@ -1,0 +1,116 @@
+/* Products Page Styles */
+
+.products-page-header {
+  background-color: var(--color-bg-primary, #ffffff);
+  padding: 3rem 0;
+  margin: 4rem 0 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 1.2rem;
+  -webkit-border-radius: 1.2rem;
+  -moz-border-radius: 1.2rem;
+  -ms-border-radius: 1.2rem;
+  -o-border-radius: 1.2rem;
+}
+
+.products-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Search Bar */
+.search-container {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1.25rem 1rem 3rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.2s;
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #00e599;
+  box-shadow: 0 0 0 4px rgba(0, 229, 153, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+/* Category Tabs */
+.filter-tabs {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  padding: 0.6rem 1.25rem;
+  border-radius: 2rem;
+  border: 1px solid #e5e7eb;
+  background: white;
+  color: #4b5563;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.filter-tab:hover {
+  border-color: #00e599;
+  color: #00e599;
+}
+
+.filter-tab.active {
+  background-color: #00e599;
+  color: #111827;
+  border-color: #00e599;
+}
+
+/* Product Grid Adjustments */
+.products-results-info {
+  margin-bottom: 1.5rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.no-results h3 {
+  font-size: 1.5rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.no-results p {
+  color: #6b7280;
+}
+
+@media (max-width: 768px) {
+  .products-page-header {
+    padding: 2rem 0;
+  }
+
+  .search-container {
+    max-width: 100%;
+  }
+}

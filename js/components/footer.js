@@ -28,10 +28,10 @@ export const Footer = () => {
                     <div class="footer-col">
                         <h4>Company</h4>
                         <ul>
-                            <li><a href="/about" data-link>About Us</a></li>
+                            <li><a href="/about" data-link>About & Contact</a></li>
                             <li><a href="/careers" data-link>Careers</a></li>
                             <li><a href="/blog" data-link>Health Blog</a></li>
-                            <li><a href="/contact" data-link>Contact</a></li>
+                            <li><a href="/about" data-link>Contact Us</a></li>
                         </ul>
                     </div>
 

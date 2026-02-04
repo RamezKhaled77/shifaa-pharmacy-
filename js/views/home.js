@@ -14,8 +14,8 @@ export const homeView = () => {
                     <h1 class="hero-title">Your trusted online pharmacy for medicines and medical supplies</h1>
                     <p class="hero-description">Get genuine medicines and high-quality medical equipment delivered to your doorstep with Shifaa's professional healthcare network.</p>
                     <div class="hero-actions">
-                        <a href="/products" class="btn btn-primary" data-link>Shop Now</a>
-                        <a href="/categories" class="btn btn-outline" data-link>Browse Categories</a>
+                        <a href="#/products" class="btn btn-primary" data-link>Shop Now</a>
+                        <a href="#/categories" class="btn btn-outline" data-link>Browse Categories</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -95,7 +95,7 @@ export const homeView = () => {
             <section class="categories-section">
                 <div class="section-header">
                     <h2>Featured Categories</h2>
-                    <a href="/categories" class="view-all-link" data-link>View all +</a>
+                    <a href="#/categories" class="view-all-link" data-link>View all +</a>
                 </div>
                 <div class="categories-grid">
                     <div class="category-card">

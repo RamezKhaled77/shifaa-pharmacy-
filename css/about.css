@@ -2,9 +2,10 @@
 
 /* Hero Section */
 .about-hero {
-  background-color: var(--color-bg-primary, #ffffff);
+  background-color: var(--color-bg);
   overflow: hidden;
   margin-top: 4rem;
+  padding: 3rem 0;
 }
 
 .about-hero-container {

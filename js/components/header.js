@@ -1,4 +1,5 @@
 import { cartService } from "../services/cartService.js";
+import { appState } from "../state.js";
 import { $ } from "../utils/dom.js";
 
 export const Header = () => {
@@ -8,7 +9,7 @@ export const Header = () => {
         <div class="nav-overlay" id="nav-overlay"></div>
         <nav class="site-header" id="site-header">
             <div class="container header-container">
-                <a href="/" data-link class="logo">
+                <a href="#/" data-link class="logo">
                     Shifaa<span>Pharmacy</span>
                 </a>
                 
@@ -19,17 +20,17 @@ export const Header = () => {
                 </button>
 
                 <div class="nav-menu" id="nav-menu">
-                    <a href="/" data-link class="nav-link">Home</a>
-                    <a href="/products" data-link class="nav-link">Products</a>
-                    <a href="/about" data-link class="nav-link">About & Contact</a>
-                    <button href="/cart" data-link class="nav-link cart-link">
-                    <div class="relative">
-                    <svg class="cart-icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                    </svg>
-                    <span id="cart-badge" class="cart-badge" style="${count === 0 ? "display: none;" : ""}">${count}</span>
-                    </div>
-                    Cart
+                    <a href="#/" data-link class="nav-link">Home</a>
+                    <a href="#/products" data-link class="nav-link">Products</a>
+                    <a href="#/about" data-link class="nav-link">About & Contact</a>
+                    <button href="#/cart" data-link class="nav-link cart-link">
+                        <div class="relative">
+                            <svg class="cart-icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                            </svg>
+                            <span id="cart-badge" class="cart-badge" style="${count === 0 ? "display: none;" : ""}">${count}</span>
+                        </div>
+                        Cart
                     </button>
                 </div>
             </div>
@@ -78,6 +79,17 @@ export const setupHeader = () => {
       header.classList.remove("scrolled");
     }
   });
+
+  // Update Cart Badge dynamically
+  const badge = $("#cart-badge");
+  if (badge) {
+    cartService.updateState(); // Ensure initial state is captured
+    appState.subscribe((state) => {
+      const count = state.cartCount || 0;
+      badge.textContent = count;
+      badge.style.display = count === 0 ? "none" : "flex";
+    });
+  }
 
   // Clean up event listeners if needed (not strict here as this is app root)
   return () => {

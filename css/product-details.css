@@ -1,0 +1,254 @@
+/* Product Details Page Styles */
+.product-details-page {
+  padding: var(--space-xl) 0;
+  max-width: 1200px;
+  margin: 0rem auto;
+}
+
+.product-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Image Gallery */
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.main-image-wrapper {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.main-image-wrapper:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.main-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.thumbnail-row {
+  display: flex;
+  gap: 16px;
+}
+
+.thumb-image {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-md);
+  background: #f8fafc;
+  border: 2px solid transparent;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.thumb-image.active {
+  border-color: var(--color-accent);
+  background: #e0fcf2;
+}
+
+.thumb-image img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+/* Info Section */
+.product-info-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-status-badge {
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 4px;
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.info-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.info-brand {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.info-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.stars {
+  color: #ffb800;
+  display: flex;
+  gap: 2px;
+}
+
+.review-count {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.info-price-row {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.current-price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2fa4a9;
+}
+
+.old-price {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.price-note {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  font-style: italic;
+  margin-bottom: 32px;
+}
+
+/* Clinical Summary Box */
+.clinical-summary-box {
+  background: #f8fafc;
+  border: 1px dashed #cbd5e0;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.summary-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1e293b;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.summary-text {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* Add to Cart Control */
+.purchase-controls {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.btn-add-detail {
+  flex-grow: 1;
+  background: var(--color-accent);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-md);
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(19, 236, 146, 0.3);
+}
+
+.btn-add-detail:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+/* Trust Badges Details */
+.info-trust-row {
+  display: flex;
+  gap: 32px;
+  padding-top: 0.8rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.trust-item-detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.trust-item-detail svg {
+  color: #2fa4a9;
+}
+
+@media (max-width: 968px) {
+  .product-details-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .info-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .thumbnail-row {
+    justify-content: center;
+  }
+
+  .purchase-controls {
+    flex-direction: column;
+  }
+
+  .info-trust-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

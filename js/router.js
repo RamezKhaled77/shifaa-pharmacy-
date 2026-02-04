@@ -17,43 +17,59 @@ const routes = {
 
 export class Router {
   constructor() {
-    window.addEventListener("popstate", () => this.handleRoute());
+    // Listen for hash changes (e.g., #/products)
+    window.addEventListener("hashchange", () => this.handleRoute());
   }
 
   navigateTo(path) {
-    window.history.pushState({}, "", path);
-    this.handleRoute();
+    // Navigate using hash
+    window.location.hash = path;
   }
 
   async handleRoute() {
-    const path = window.location.pathname;
+    // Get path from hash, default to /
+    let path = window.location.hash.substring(1) || "/";
     const mainContent = $("#main-content");
 
-    // Simple router logic - matches exact paths or params
-    // For static GH pages or non-server environments, we might need hash routing
-    // But let's stick to Path for now assuming local server support
+    if (!mainContent) return;
 
-    // Handling /product/:id logic roughly
+    // Support for simple dynamic routes like /product/1
     let view = routes[path];
 
+    // Simple regex for /product/:id
+    if (!view && path.startsWith("/product/")) {
+      view = routes["/product/:id"];
+    }
+
     if (!view) {
-      // Basic 404
-      mainContent.innerHTML = "<h1>404 - Page Not Found</h1>";
+      mainContent.innerHTML = `
+        <div class="container" style="text-align:center; padding: 5rem 0;">
+            <h1>404 - Page Not Found</h1>
+            <p>The page you are looking for doesn't exist.</p>
+            <a href="#/" style="color: var(--color-primary); text-decoration: underline;">Go Home</a>
+        </div>
+      `;
       return;
     }
 
     mainContent.innerHTML = await view();
+
+    // Smooth scroll to top on route change
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // Initial load
   init() {
     this.handleRoute();
 
-    // Intercept link clicks
+    // Intercept clicks on data-link elements
     document.body.addEventListener("click", (e) => {
-      if (e.target.matches("[data-link]")) {
+      const link = e.target.closest("[data-link]");
+      if (link) {
         e.preventDefault();
-        this.navigateTo(e.target.href);
+        const href = link.getAttribute("href");
+        // Convert /path to #/path if it's not already a hash
+        const path = href.startsWith("#") ? href.substring(1) : href;
+        this.navigateTo(path);
       }
     });
   }

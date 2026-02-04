@@ -3,7 +3,7 @@
 .products-page-header {
   background-color: var(--color-bg-primary, #ffffff);
   padding: 3rem 0;
-  margin: 4rem 0 2rem;
+  margin: 1rem 0 2rem;
   border-bottom: 1px solid #e5e7eb;
   border-radius: 1.2rem;
   -webkit-border-radius: 1.2rem;

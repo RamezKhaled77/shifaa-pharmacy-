@@ -1,5 +1,6 @@
 import { products } from "../../data/products.js";
 import { ProductCard } from "../components/productCard.js";
+import { Breadcrumbs } from "../components/breadcrumbs.js";
 import { $ } from "../utils/dom.js";
 
 let currentCategory = "All";
@@ -62,6 +63,7 @@ export const productsView = async () => {
 
   return `
         <div class="products-page">
+            ${Breadcrumbs([{ label: "Products" }])}
             <header class="products-page-header">
                 <div class="container">
                     <h1>Our Medicines & Supplies</h1>
@@ -79,7 +81,7 @@ export const productsView = async () => {
                               .map(
                                 (cat) => `
                                 <button class="filter-tab ${currentCategory === cat ? "active" : ""}" data-category="${cat}">
-                                    ${cat}
+                                    ${cat.toUpperCase()}
                                 </button>
                             `,
                               )

@@ -209,8 +209,7 @@
 /* Product Card Style - Reusable Component */
 .product-card {
   background: white;
-  border-radius: 12px; /* Slightly tighter radius */
-  /* border: 1px solid #f0f0f0;  Removing border, using shadow like image */
+  border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
   overflow: hidden;
   transition: all 0.3s ease;
@@ -218,7 +217,6 @@
   flex-direction: column;
   height: 100%;
   position: relative;
-  padding: 1.5rem; /* Inner padding for whole card */
 }
 
 .product-card:hover {
@@ -226,8 +224,21 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-card-footer {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
 .product-image-wrapper {
-  background-color: #f7f9fa; /* Darker/different bg for image if needed, or transparent? Image in reference has dark bg. keeping it simple/light */
+  background-color: #f7f9fa;
   border-radius: 12px;
   height: 200px;
   display: flex;
@@ -242,12 +253,10 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  mix-blend-mode: normal;
-  padding: 0;
   transition: transform 0.5s ease;
 }
 
-.product-card:hover .product-image {
+.product-card-link:hover .product-image {
   transform: scale(1.05);
 }
 
@@ -260,7 +269,7 @@
 .product-category {
   font-size: 0.7rem;
   font-weight: 700;
-  color: var(--color-primary); /* Teal-ish */
+  color: var(--color-primary);
   text-transform: uppercase;
   margin-bottom: 0.75rem;
   letter-spacing: 0.5px;
@@ -271,22 +280,16 @@
   font-weight: 700;
   margin-bottom: 0.75rem;
   line-height: 1.3;
-  color: #1a202c; /* Dark text */
-  flex-grow: 0; /* Don't stretch */
-}
-
-.product-title a {
-  text-decoration: none;
-  color: inherit;
+  color: #1a202c;
 }
 
 .product-description {
   font-size: 0.85rem;
-  color: #718096; /* Gray text */
-  margin-bottom: 1.5rem;
+  color: #718096;
+  margin-bottom: 1rem;
   line-height: 1.5;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-line-clamp: 2;
   line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -296,8 +299,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
-  margin-top: auto; /* Push to bottom of content area before button */
+  margin-top: auto;
+  padding-bottom: 0.5rem;
 }
 
 .product-price {
@@ -424,4 +427,48 @@
   -webkit-appearance: none;
   appearance: none;
   margin: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                BREADCRUMBS                                 */
+/* -------------------------------------------------------------------------- */
+.breadcrumbs {
+  padding: 1.5rem 0 0.5rem 0;
+  margin-top: 4rem;
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  font-size: 0.875rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--color-primary-dark);
+}
+
+.breadcrumb-item.active {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.breadcrumb-separator {
+  margin: 0 10px;
+  color: var(--color-primary);
+  opacity: 0.6;
+  font-weight: 400;
 }

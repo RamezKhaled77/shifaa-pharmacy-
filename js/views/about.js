@@ -1,6 +1,9 @@
+import { Breadcrumbs } from "../components/breadcrumbs.js";
+
 export const aboutView = async () => {
   return `
       <div class="about-page">
+          ${Breadcrumbs([{ label: "About & Contact" }])}
           <!-- Hero Section -->
           <section class="about-hero section">
               <div class="container about-hero-container">

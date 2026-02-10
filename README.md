@@ -73,10 +73,6 @@ Shifaa Pharmacy is a sophisticated, high-performance Single Page Application (SP
 - [ ] Order history and user account dashboard.
 - [ ] Dark mode support.
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ---
 
 _Crafted with ❤️ for a better healthcare experience._

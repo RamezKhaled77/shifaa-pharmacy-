@@ -1,4 +1,3 @@
-import { $ } from "../utils/dom.js";
 import { products } from "../../data/products.js";
 import { ProductCard } from "../components/productCard.js";
 
@@ -15,7 +14,7 @@ export const homeView = () => {
                     <p class="hero-description">Get genuine medicines and high-quality medical equipment delivered to your doorstep with Shifaa's professional healthcare network.</p>
                     <div class="hero-actions">
                         <a href="#/products" class="btn btn-primary" data-link>Shop Now</a>
-                        <a href="#/categories" class="btn btn-outline" data-link>Browse Categories</a>
+                        <a href="#categories" class="btn btn-outline" id="browse-categories-btn">Browse Categories</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -92,7 +91,7 @@ export const homeView = () => {
             </section>
 
             <!-- Categories Section -->
-            <section class="categories-section">
+            <section class="categories-section" id="categories">
                 <div class="section-header">
                     <h2>Featured Categories</h2>
                     <a href="#/categories" class="view-all-link" data-link>View all +</a>
@@ -153,18 +152,31 @@ export const homeView = () => {
 // Check if listener is already attached to avoid duplicates in SPA navigation
 if (!window.homeEventsAttached) {
   document.addEventListener("click", (e) => {
-    const btn = e.target.closest(".nav-btn");
-    if (!btn) return;
+    // Handle carousel navigation
+    const navBtn = e.target.closest(".nav-btn");
+    if (navBtn) {
+      const grid = document.querySelector(".products-grid");
+      if (!grid) return;
 
-    const grid = document.querySelector(".products-grid");
-    if (!grid) return;
+      const scrollAmount = 300; // Approx card width + gap
 
-    const scrollAmount = 300; // Approx card width + gap
+      if (navBtn.classList.contains("next")) {
+        grid.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      } else if (navBtn.classList.contains("prev")) {
+        grid.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      }
+      return;
+    }
 
-    if (btn.classList.contains("next")) {
-      grid.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    } else if (btn.classList.contains("prev")) {
-      grid.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    // Handle smooth scroll for "Browse Categories" anchor
+    // This exists to prevent the router from treating the internal anchor as a new route
+    const scrollBtn = e.target.closest("#browse-categories-btn");
+    if (scrollBtn) {
+      e.preventDefault();
+      const target = document.querySelector("#categories");
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
     }
   });
   window.homeEventsAttached = true;

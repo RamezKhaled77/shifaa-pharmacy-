@@ -226,6 +226,11 @@ main#main-content {
   color: #6b7280;
 }
 
+.dev-name {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
 .payment-icons {
   display: flex;
   gap: 1rem;

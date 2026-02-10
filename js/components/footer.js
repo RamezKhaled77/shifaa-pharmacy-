@@ -48,7 +48,7 @@ export const Footer = () => {
                 </div>
                 
                 <div class="footer-bottom">
-                    <p>&copy; 2026 Shifaa Pharmacy. All rights reserved.</p>
+                    <p>&copy; 2026 Shifaa Pharmacy. All rights reserved. | Developed by <span class="dev-name">Ramez Khaled</span></p>
                     <div class="payment-icons">
                         <!-- Simple text or fake icons -->
                         <span>VISA</span> <span>Mastercard</span> <span>PayPal</span>

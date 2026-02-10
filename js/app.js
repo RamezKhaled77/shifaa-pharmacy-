@@ -1,20 +1,23 @@
 import { router } from "./router.js";
 import { appState } from "./state.js";
-import { Header, setupHeader } from "./components/header.js";
+import { Header, setupHeader, renderHeader } from "./components/header.js";
 import { Footer } from "./components/footer.js";
 import { $ } from "./utils/dom.js";
 import { cartService } from "./services/cartService.js";
+import { authService } from "./services/authService.js";
 import { products } from "../data/products.js";
 import { toast } from "./utils/toast.js";
 import { setCategory } from "./views/products.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Render Static Components
-  $("#main-header").innerHTML = Header();
+  // Render Initial Components
+  renderHeader();
   $("#main-footer").innerHTML = Footer();
 
-  // Initialize Header Events (Mobile Toggle, Scroll)
-  setupHeader();
+  // Handle State Changes for Header
+  appState.subscribe(() => {
+    renderHeader();
+  });
 
   // Initialize Router
   router.init();

@@ -5,6 +5,7 @@ export const Footer = () => {
                 <div class="footer-grid">
                     <div class="footer-brand-col">
                         <div class="footer-logo">
+                            <img src="assets/icons/no-bg-logo.png" alt="Shifaa Pharmacy Logo" class="footer-logo-img">
                             <span class="logo-text">Shifaa</span><span class="logo-accent">Pharmacy</span>
                         </div>
                         <p class="footer-desc">Your trusted partner for health and wellness. Premium medicines and expert care delivered to your doorstep.</p>

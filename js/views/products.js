@@ -6,13 +6,24 @@ import { $ } from "../utils/dom.js";
 let currentCategory = "All";
 let searchQuery = "";
 
+/**
+ * Sets the current product category filter
+ * @param {string} category - The category to filter by
+ */
+export const setCategory = (category) => {
+  currentCategory = category;
+};
+
 export const productsView = async () => {
   // Get unique categories
   const categories = ["All", ...new Set(products.map((p) => p.category))];
 
-  // Filter products based on current state
-  const filterAndRender = () => {
-    const filtered = products.filter((p) => {
+  /**
+   * Helper to get filtered products based on current state
+   * @returns {Array} Filtered product list
+   */
+  const getFilteredProducts = () => {
+    return products.filter((p) => {
       const matchesCategory =
         currentCategory === "All" || p.category === currentCategory;
       const matchesSearch =
@@ -20,6 +31,11 @@ export const productsView = async () => {
         p.brand.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
+  };
+
+  // Filter products based on current state
+  const filterAndRender = () => {
+    const filtered = getFilteredProducts();
 
     const grid = $("#products-grid");
     if (grid) {
@@ -38,6 +54,9 @@ export const productsView = async () => {
     const countEl = $("#results-count");
     if (countEl) countEl.textContent = filtered.length;
   };
+
+  // Initial filtered list for first render
+  const initialFiltered = getFilteredProducts();
 
   // Attach listeners after a short delay to ensure DOM is ready
   // This is a workaround for the simple router implementation
@@ -93,10 +112,10 @@ export const productsView = async () => {
 
             <div class="container">
                 <div class="products-results-info">
-                    Showing <span id="results-count">${products.length}</span> products
+                    Showing <span id="results-count">${initialFiltered.length}</span> products
                 </div>
                 <div class="grid grid-cols-4" id="products-grid">
-                    ${products.map((p) => ProductCard(p)).join("")}
+                    ${initialFiltered.map((p) => ProductCard(p)).join("")}
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ import { $ } from "./utils/dom.js";
 import { cartService } from "./services/cartService.js";
 import { products } from "../data/products.js";
 import { toast } from "./utils/toast.js";
+import { setCategory } from "./views/products.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Render Static Components
@@ -28,6 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
         cartService.addToCart(product);
         toast(`${product.name} added to cart!`);
       }
+    }
+  });
+
+  // Global Category Filter Handler
+  document.addEventListener("click", (e) => {
+    const el = e.target.closest("[data-category]");
+    if (el) {
+      setCategory(el.dataset.category);
     }
   });
 

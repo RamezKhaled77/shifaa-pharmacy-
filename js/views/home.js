@@ -1,3 +1,4 @@
+import { $ } from "../utils/dom.js";
 import { products } from "../../data/products.js";
 import { ProductCard } from "../components/productCard.js";
 
@@ -13,7 +14,7 @@ export const homeView = () => {
                     <h1 class="hero-title">Your trusted online pharmacy for medicines and medical supplies</h1>
                     <p class="hero-description">Get genuine medicines and high-quality medical equipment delivered to your doorstep with Shifaa's professional healthcare network.</p>
                     <div class="hero-actions">
-                        <a href="#/products" class="btn btn-primary" data-link>Shop Now</a>
+                        <a href="#/products" class="btn btn-primary" data-link data-category="All">Shop Now</a>
                         <a href="#categories" class="btn btn-outline" id="browse-categories-btn">Browse Categories</a>
                     </div>
                 </div>
@@ -94,17 +95,17 @@ export const homeView = () => {
             <section class="categories-section" id="categories">
                 <div class="section-header">
                     <h2>Featured Categories</h2>
-                    <a href="#/categories" class="view-all-link" data-link>View all +</a>
+                    <a href="#/products" class="view-all-link" data-link data-category="All">View all +</a>
                 </div>
                 <div class="categories-grid">
-                    <div class="category-card">
+                    <a href="#/products" class="category-card" data-link data-category="medicine">
                         <img src="assets/images/medicines.jpg" alt="Medicines">
                         <div class="category-info">
                             <h3>Medicines</h3>
                             <span>Prescription & OTC</span>
                         </div>
-                    </div>
-                    <div class="category-card">
+                    </a>
+                    <a href="#/products" class="category-card" data-link data-category="medical devices">
                         <div class="category-image-wrapper">
                             <img src="assets/images/medical-devices.jpg" alt="Medical Devices">
                         </div>
@@ -112,8 +113,8 @@ export const homeView = () => {
                             <h3>Medical Devices</h3>
                             <span>Monitoring & Equipment</span>
                         </div>
-                    </div>
-                    <div class="category-card">
+                    </a>
+                    <a href="#/products" class="category-card" data-link data-category="health & care">
                         <div class="category-image-wrapper">
                              <img src="assets/images/healthcare.jpg" alt="Health & Care">
                         </div>
@@ -121,7 +122,7 @@ export const homeView = () => {
                             <h3>Health & Care</h3>
                             <span>Wellness & Skincare</span>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </section>
             

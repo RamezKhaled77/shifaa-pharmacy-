@@ -1,7 +1,7 @@
 import { cartService } from "../services/cartService.js";
-import { $ } from "../utils/dom.js";
 import { router } from "../router.js";
 import { confirmModal } from "../utils/modal.js";
+import { checkoutModal } from "../utils/checkoutModal.js";
 
 export const cartView = async () => {
   const cart = cartService.cart;
@@ -45,6 +45,19 @@ export const cartView = async () => {
         }
       });
     });
+
+    // Checkout button listener
+    const checkoutBtn = document.querySelector(".btn-checkout");
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const success = await checkoutModal();
+        if (success) {
+          // Navigate to home after successful checkout
+          router.navigateTo("/");
+        }
+      });
+    }
   };
 
   // Delay listener attachment
@@ -154,10 +167,10 @@ export const cartView = async () => {
                     </div>
 
                     <div class="cart-actions">
-                        <a href="#/checkout" data-link class="btn-checkout">
+                        <button class="btn-checkout">
                             Proceed to Checkout
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
+                        </button>
                         <a href="#/products" data-link class="btn-continue">Continue Shopping</a>
                     </div>
 
